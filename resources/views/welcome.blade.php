@@ -7,10 +7,5 @@
     <h1>Hi, my name is {{ $name }} </h1>
     <h1>This is my First Laravel App</h1>
     <br>
-    <ul>
-        @foreach ($hobbies as $hobby)
-            <li>{{ $hobby->name }}</li>
-        @endforeach
-    </ul>
 </body>
 </html>

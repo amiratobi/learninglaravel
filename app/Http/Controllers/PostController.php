@@ -12,8 +12,25 @@ class PostController extends Controller
     	return view('posts.index');
     }
 
-    public function details()
+    public function details(Post $post)
     {
     	return view('posts.details', compact('post'));
+    }
+
+    public function create()
+    {
+    	return view('posts.create');
+    }
+
+    public function store()
+    {
+    	//dd(request()->all());
+    	$this->validate(request(), [
+    		"title" => "required",
+    		"body" => "required"
+    	]);
+
+    	Post::create(request(['title','body']));
+    	return redirect('/posts');
     }
 }
