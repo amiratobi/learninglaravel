@@ -1,7 +1,16 @@
-@extends ('layout')
+@extends ('layouts.master')
 
 @section ('content')
+	<div class="col-sm-8 blog-main">
 
-	<h1>A place to view post details</h1>
+		<h1>{{ $post->title }}</h1>
+		
+		<p>{{ $post->body }}</p>
+		
+	</div>
 
+@endsection
+
+@section ('scripts')
+	<script src="posts.js"></script>
 @endsection
