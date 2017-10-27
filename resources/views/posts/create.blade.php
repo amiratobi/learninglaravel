@@ -8,15 +8,7 @@
 		<hr>
 		<form method="POST" action="/posts">
 		  {{ csrf_field() }}
-		  @if (count($errors))
-			  <div class="form-group alert alert-danger">
-			  	<ul>
-			  		@foreach ($errors->all() as $error)
-				  		<li> {{ $error }} </li>
-				  	@endforeach
-			  	</ul>
-			  </div>
-		  @endif
+    	  @include ('layouts.errors')
 
 		  <div class="form-group">
 		    <label for="post-title">Title</label>
@@ -25,7 +17,7 @@
 
 		  <div class="form-group">
 		    <label for="post-body">Body</label>
-		    <textarea class="form-control" id="post-body" name="body"></textarea>
+		    <textarea class="form-control" id="post-body" name="body" required></textarea>
 		  </div>
 
 		  <div class="form-group">
