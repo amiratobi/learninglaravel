@@ -11,7 +11,9 @@ Route::get('hobbies', 'HobbiesController@index');
 
 Route::get('hobbies/{hobby}', 'HobbiesController@details');
 
-Route::get('posts', 'PostController@index');
+Route::get('posts', 'PostController@index')->name('home');
+
+Route::get('home', 'PostController@index');
 
 Route::get('posts/create', 'PostController@create');
 
@@ -25,7 +27,9 @@ Route::get('register', 'RegistrationController@create');
 
 Route::post('register', 'RegistrationController@store');
 
-Route::get('login', 'SessionController@create');
+Route::get('login', 'SessionController@create')->name('login');
+
+Route::post('login', 'SessionController@store');
 
 Route::get('logout', 'SessionController@destroy');
 

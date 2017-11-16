@@ -1,4 +1,4 @@
-@extends ('layouts.register')
+@extends ('layouts.blank')
 
 @section ('content')
 	<div class="col-8 ml-5 mt-5 mb-5">
