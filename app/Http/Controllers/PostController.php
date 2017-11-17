@@ -15,21 +15,13 @@ class PostController extends Controller
 
     public function index()	
     {
-        $dt = Carbon::now();
-        Carbon::setToStringFormat('Y-m-d \TH:i:s');
-        $dt->toDateTimeString();
-
         $posts = Post::latest()
-                ->filter(request(['month', 'year']))
-                ->get();
+        ->filter(request(['month', 'year']))
+        ->get();
 
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-                    ->groupBy('year', 'month')
-                    ->orderBy('created_at', 'desc')
-                    ->get();
+        $archives = Post::archives();
     	
         return view('posts.index',compact('posts', 'archives', 'dt'));
-
     }
 
     public function details(Post $post)
