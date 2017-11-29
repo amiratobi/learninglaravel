@@ -19,6 +19,8 @@
 
     @include ('layouts.nav')
 
+    @include ('layouts.flash')
+
     <main role="main" class="container">
 
       <div class="row">

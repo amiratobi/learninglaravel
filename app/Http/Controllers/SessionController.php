@@ -43,9 +43,10 @@ class SessionController extends Controller
 
     		return back()->withErrors([]);
 
-    	}
+		}
+		$message = 'Welcome Back '.auth()->user()->name; 
 
-
+		session()->flash('message', $message);
     	return redirect('/posts');
 
     }
